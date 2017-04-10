@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class GCJUtils {
 
 	public static int charToInt(char c) {
@@ -53,6 +55,34 @@ public class GCJUtils {
 		for (int i = offset; i < numbers.length; i++)
 			numbers[i] = (numbers[i] == n1) ? n2 : n1;
 		return numbers;
+	}
+
+	/**
+	* Devuelve las diferentes cifras de un número (no repetidas)
+	* @param long n El número del que saber las cifras 
+	* @return int[] Las cifras del número
+	*/
+	public static int[] differentCiphers(long n) {
+		int[] ciphers = splitNumber(n), r;
+		int it = 0;
+		HashSet<Integer> knownC = new HashSet<Integer>();
+		for(int i = 0; i < ciphers.length; i ++)
+			knownC.add(ciphers[i]);
+		r = new int[knownC.size()];
+		for (int c : knownC) {
+			r[it] = c;
+			it ++;
+		}
+		return r;
+	}
+
+	/**
+	* Devuelve las diferentes cifras de un número (no repetidas)
+	* @param int n El número del que saber las cifras 
+	* @return int[] Las cifras del número
+	*/
+	public static int[] differentCiphers(int n) {
+		return differentCiphers(Long.valueOf(n));
 	}
 	
 	public static int[] splitNumber(long n) {
