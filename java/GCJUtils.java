@@ -3,6 +3,57 @@ public class GCJUtils {
 	public static int charToInt(char c) {
 		return c - '0';
 	}
+
+	/**
+	* Intercambia los caracteres de str
+	* @param String str El string del que se intercambian los valores
+	* @param char c1 Uno de los dos caracteres a intercambiar
+	* @param char c2 Uno de los dos caracteres a intercambiar
+	* @return String La cadena con los valores intercambiados
+	*/
+	public static String flip(String str, char c1, char c2) {
+		return flipFromOffset(str, c1, c2, 0);
+	}
+
+	/**
+	* Intercambia los numeros de numbers
+	* @param int[] numbers Los números que se van a intercambian los valores
+	* @param int n1 Uno de los dos números a intercambiar
+	* @param int n2 Uno de los dos números a intercambiar
+	* @return int[] Los números cambiados
+	*/
+	public static int[] flip(int[] numbers, int n1, int n2) {
+		return flipFromOffset(numbers, n1, n2, 0);
+	}
+
+	/**
+	* Intercambia los caracteres de str desde un punto
+	* @param String str El string del que se intercambian los valores
+	* @param char c1 Uno de los dos caracteres a intercambiar
+	* @param char c2 Uno de los dos caracteres a intercambiar
+	* @param int offset Desde donde empiezaa hacer el flip 
+	* @return String La cadena con los valores intercambiados
+	*/
+	public static String flipFromOffset(String str, char c1, char c2, int offset) {
+		char[] chars = str.toCharArray();
+		for (int i = offset; i < chars.length; i++)
+			chars[i] = (chars[i] == c1) ? c2 : c1;
+		return String.valueOf(chars);
+	}
+
+	/**
+	* Intercambia los numeros de numbers desde un punto
+	* @param int[] numbers Los números que se van a intercambian los valores
+	* @param int n1 Uno de los dos números a intercambiar
+	* @param int n2 Uno de los dos números a intercambiar
+	* @param int offset Desde donde empiezaa hacer el flip 
+	* @return int[] Los números cambiados
+	*/
+	public static int[] flipFromOffset(int[] numbers, int n1, int n2, int offset) {
+		for (int i = offset; i < numbers.length; i++)
+			numbers[i] = (numbers[i] == n1) ? n2 : n1;
+		return numbers;
+	}
 	
 	public static int[] splitNumber(long n) {
 		String nStr = String.valueOf(n);
