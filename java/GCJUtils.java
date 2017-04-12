@@ -18,7 +18,7 @@ public class GCJUtils {
 	}
 
 	/**
-	* Exchages two integers' indexes from one array of ints, int[] numbers
+	* Exchanges two integers' indexes from one array of ints, int[] numbers
 	* @param int[] numbers Array of ints input -the original one
 	* @param int n1 One of the integers
 	* @param int n2 The other one
