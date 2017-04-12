@@ -1,40 +1,46 @@
 import java.util.*;
 
 public class GCJUtils {
-
+	
+	/**
+	* Converts char numeric value (0-9) to its equal numerical value
+	* @param char c Char we want to convert to int
+	* @return int Char converted to its numerical value
+	*/
 	public static int charToInt(char c) {
 		return c - '0';
 	}
 
 	/**
-	* Exchanges two chars' indexes from string str
+	* Replaces c1 for c2 and viceversa from string str
 	* @param String str String input -the original one
 	* @param char c1 One of the chars
 	* @param char c2 The other one
-	* @return String String output
+	* @return String String output with replaced values
 	*/
 	public static String flip(String str, char c1, char c2) {
 		return flipFromOffset(str, c1, c2, 0);
 	}
 
 	/**
-	* Exchanges two integers' indexes from one array of ints, int[] numbers
+	* Replaces n1 for n2 and viceversa from one array of ints, 
+	* int[] numbers
 	* @param int[] numbers Array of ints input -the original one
 	* @param int n1 One of the integers
 	* @param int n2 The other one
-	* @return int[] Array of ints ouput
+	* @return int[] Array of ints ouput with replaced values
 	*/
 	public static int[] flip(int[] numbers, int n1, int n2) {
 		return flipFromOffset(numbers, n1, n2, 0);
 	}
 
 	/**
-	* Intercambia los caracteres de str desde un punto
-	* @param String str El string del que se intercambian los valores
-	* @param char c1 Uno de los dos caracteres a intercambiar
-	* @param char c2 Uno de los dos caracteres a intercambiar
-	* @param int offset Desde donde empiezaa hacer el flip 
-	* @return String La cadena con los valores intercambiados
+	* Replaces c1 for c2 and viceversa starting from an offset
+	* @param String str String input -the original one
+	* @param char c1 One of the chars
+	* @param char c2 The other one
+	* @param int offset Position where the flip starts 
+	* @return String String output with replaced values
 	*/
 	public static String flipFromOffset(String str, char c1, char c2, int offset) {
 		char[] chars = str.toCharArray();
@@ -44,12 +50,12 @@ public class GCJUtils {
 	}
 
 	/**
-	* Intercambia los numeros de numbers desde un punto
-	* @param int[] numbers Los números que se van a intercambian los valores
-	* @param int n1 Uno de los dos números a intercambiar
-	* @param int n2 Uno de los dos números a intercambiar
-	* @param int offset Desde donde empiezaa hacer el flip 
-	* @return int[] Los números cambiados
+	* Replaces n1 for n2 and viceversa starting from an offset
+	* @param int[] numbers Array of ints input -the original one
+	* @param int n1 One of the integers
+	* @param int n2 The other one
+	* @param int offset Position where the flip starts 
+	* @return int[] Array of ints output with replaced values
 	*/
 	public static int[] flipFromOffset(int[] numbers, int n1, int n2, int offset) {
 		for (int i = offset; i < numbers.length; i++)
@@ -58,9 +64,9 @@ public class GCJUtils {
 	}
 
 	/**
-	* Devuelve las diferentes cifras de un número (no repetidas)
-	* @param long n El número del que saber las cifras 
-	* @return int[] Las cifras del número
+	* Returns the different ciphers contained in n (no duplicates)
+	* @param long n Number which we want to know the different ciphers 
+	* @return int[] Different ciphers
 	*/
 	public static int[] differentCiphers(long n) {
 		int[] ciphers = splitNumber(n), r;
@@ -77,14 +83,19 @@ public class GCJUtils {
 	}
 
 	/**
-	* Devuelve las diferentes cifras de un número (no repetidas)
-	* @param int n El número del que saber las cifras 
-	* @return int[] Las cifras del número
+	* Returns the different ciphers containd in n (no duplicates)
+	* @param int n Number which we want to know the different ciphers
+	* @return int[] Different ciphers
 	*/
 	public static int[] differentCiphers(int n) {
 		return differentCiphers(Long.valueOf(n));
 	}
 	
+	/**
+	* Splits a number into its ciphers
+	* @param long n Number to split
+	* @return int[] Array containing each cipher of n
+	*/	
 	public static int[] splitNumber(long n) {
 		String nStr = String.valueOf(n);
 		int[] splitted = new int[nStr.length()];
@@ -93,11 +104,21 @@ public class GCJUtils {
 		}
 		return splitted;
 	}
-
+	
+	/**
+	* Splits a number into its ciphers
+	* @param int n Number to split
+	* @return int[] Array containing each cipher of n
+	*/
 	public static int[] splitNumber(int n) {
 		return splitNumber(Long.valueOf(n));
 	}
 	
+	/**
+	* Checks if a number is sorted in ascending order
+	* @param long n Number to check its cipher order
+	* @return boolean If it's sorted in ascending order or not
+	*/
 	public static boolean isAscOrdered(long n) {
 		int[] splitted = splitNumber(n);
 		for (int i = 0; i < splitted.length - 1; i++) {
@@ -107,10 +128,20 @@ public class GCJUtils {
 		return true;
 	}
 	
+	/**
+	* Checks if a number is sorted in ascending order
+	* @param int n Number to check its cipher order
+	* @return boolean If it's sorted in ascending order or not
+	*/
 	public static boolean isAscOrdered(int n) {
 		return isAscOrdered(Long.valueOf(n));
 	}
 	
+	/**
+	* Checks if a number is sorted in descending order
+	* @param long n Number to check its cipher order
+	* @return boolean If it's sorted in descending order or not
+	*/
 	public static boolean isDescOrdered(long n) {
 		int[] splitted = splitNumber(n);
 		for (int i = 0; i < splitted.length - 1; i++) {
@@ -120,14 +151,31 @@ public class GCJUtils {
 		return true;
 	}
 	
+	/**
+	* Checks if a number is sorted in descending order
+	* @param int n Number to check its cipher order
+	* @return boolean If it's sorted in descending order or not
+	*/	
 	public static boolean isDescOrdered(int n) {
 		return isDescOrdered(Long.valueOf(n));
 	}
-
+	
+	/**
+	* Count how many times oc appears in str
+	* @param String str String we want to examine
+	* @param String oc String we want to find in str
+	* @return int Number of times that oc appears in str
+	*/
 	public static int countOccurrences(String str, String oc) {
 		return str.length() - str.replace(oc, "").length();
 	}
-
+	
+	/**
+	* Count how many times oc appears in str
+	* @param String str String we want to examine
+	* @param char oc char we want to find in str
+	* @return int Number of times that oc appears in str
+	*/
 	public static int countOccurrences(String str, char oc) {
 		return countOccurrences(str, String.valueOf(oc));
 	}
