@@ -179,4 +179,27 @@ public class GCJUtils {
 	public static int countOccurrences(String str, char oc) {
 		return countOccurrences(str, String.valueOf(oc));
 	}
+
+	/**
+	* Adds a character to a String, writing right if alphabetically ascending sorted (or equal), left if else
+	* @param String str String we want write in
+	* @param char c char we want to add
+	* @return String modified
+	*/
+	public static String addCharToStringAlphaSorted(String str, char c){
+		int c_int = c;
+		int c_initvalue_int = str.charAt(0);
+		int c_lastvalue_int = str.charAt(str.length() - 1);
+
+		System.out.println("Adding " +  c_int + " to \"" + str + "\", seeing extreme chars " + c_initvalue_int + " and " + c_lastvalue_int);
+
+		if(c <= c_lastvalue_int)
+			str += c;
+		else if(c > c_lastvalue_int)
+			str = c + str;
+
+		System.out.println("Result: " + str);
+
+		return str;
+	}
 }
