@@ -181,24 +181,21 @@ public class GCJUtils {
 	}
 
 	/**
-	* Adds a character to a String, writing right if alphabetically ascending sorted (or equal), left if else
-	* @param String str String we want write in
+	* Adds a character to a String, appending it to the right if it's 
+	* alphabetically smaller (or equal) than the last char of str, left
+	* otherwise
+	* @param String str String we want to write in
 	* @param char c char we want to add
-	* @return String modified
+	* @return String modified String
 	*/
 	public static String addCharToStringAlphaSorted(String str, char c){
 		int c_int = c;
-		int c_initvalue_int = str.charAt(0);
 		int c_lastvalue_int = str.charAt(str.length() - 1);
 
-		System.out.println("Adding " +  c_int + " to \"" + str + "\", seeing extreme chars " + c_initvalue_int + " and " + c_lastvalue_int);
-
-		if(c <= c_lastvalue_int)
+		if (c <= c_lastvalue_int)
 			str += c;
-		else if(c > c_lastvalue_int)
+		else if (c > c_lastvalue_int)
 			str = c + str;
-
-		System.out.println("Result: " + str);
 
 		return str;
 	}
