@@ -7,22 +7,22 @@ public class GCJUtils {
 	}
 
 	/**
-	* Intercambia los caracteres de str
-	* @param String str El string del que se intercambian los valores
-	* @param char c1 Uno de los dos caracteres a intercambiar
-	* @param char c2 Uno de los dos caracteres a intercambiar
-	* @return String La cadena con los valores intercambiados
+	* Exchanges two chars' indexes from string str
+	* @param String str String input -the original one
+	* @param char c1 One of the chars
+	* @param char c2 The other one
+	* @return String String output
 	*/
 	public static String flip(String str, char c1, char c2) {
 		return flipFromOffset(str, c1, c2, 0);
 	}
 
 	/**
-	* Intercambia los numeros de numbers
-	* @param int[] numbers Los números que se van a intercambian los valores
-	* @param int n1 Uno de los dos números a intercambiar
-	* @param int n2 Uno de los dos números a intercambiar
-	* @return int[] Los números cambiados
+	* Exchages two integers' indexes from one array of ints, int[] numbers
+	* @param int[] numbers Array of ints input -the original one
+	* @param int n1 One of the integers
+	* @param int n2 The other one
+	* @return int[] Array of ints ouput
 	*/
 	public static int[] flip(int[] numbers, int n1, int n2) {
 		return flipFromOffset(numbers, n1, n2, 0);
